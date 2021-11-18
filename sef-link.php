@@ -1,22 +1,22 @@
 <?php 
 
 function seflink($str){
-    // karakterleri küçülttük
+    // karakterleri kÃ¼Ã§Ã¼lttÃ¼k
     $str = mb_strtolower($str,'UTF-8');
-    // türkçe karakterleri dönüþtürdük
+    // tÃ¼rkÃ§e karakterleri dÃ¶nÃ¼Ã¾tÃ¼rdÃ¼k
     $str = str_replace(
-        ['ý','þ','ü','ö','ð','ç'],
+        ['Ã½','Ã¾','Ã¼','Ã¶','Ã°','Ã§'],
         ['i','s','u','o','g','c'],
         $str
         );
-    //boþluklara ve kelimelerin arasýna - koyacaðým
+    //boÃ¾luklara ve kelimelerin arasÃ½na - koyacaÃ°Ã½m
     $str = preg_replace('/[^a-z0-9]/','-',$str);
-    // bir kere yazmak için
+    // bir kere yazmak iÃ§in
     $str = preg_replace('/-+/','-',$str);
     return trim($str,'-');
 }
 
-$str = 'This is a seflink / Kirathebug';
+$str = 'This is a seflink';
 echo seflink($str);
 
 ?>
